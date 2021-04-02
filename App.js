@@ -1,21 +1,38 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
+import AppLoading from 'expo-app-loading';
+import * as Font from 'expo-font';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+let customFonts = {
+  'Inconsolata-Light': require('./assets/fonts/Inconsolata-Light.ttf'),
+  'Inconsolata-Regular': require('./assets/fonts/Inconsolata-Regular.ttf'),
+};
+
+export default class App extends React.Component {
+  state = {
+    fontsLoaded: false,
+  };
+
+  async _loadFontsAsync() {
+    await Font.loadAsync(customFonts);
+    this.setState({ fontsLoaded: true });
+  }
+
+  componentDidMount() {
+    this._loadFontsAsync();
+  }
+
+  render() {
+    if (this.state.fontsLoaded) {
+      return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text>Platform Default</Text>
+          <Text style={{ fontFamily: 'Inconsolata-Light' }}>Inter Black</Text>
+          <Text style={{ fontFamily: 'Inconsolata-Regular' }}>Inter Regular</Text>
+        </View>
+      );
+    } else {
+      return <AppLoading />;
+    }
+  }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
