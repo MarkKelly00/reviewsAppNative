@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import Navigator from './routes/homeStack';
 import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import Home from './screens/home';
@@ -26,7 +26,7 @@ export default class App extends React.Component {
   render() {
     if (this.state.fontsLoaded) {
       return (
-        <Home />
+        <Navigator />
       );
     } else {
       return <AppLoading />;
