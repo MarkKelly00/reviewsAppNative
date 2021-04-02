@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
+import Home from './screens/home';
 
 let customFonts = {
   'Inconsolata-Light': require('./assets/fonts/Inconsolata-Light.ttf'),
@@ -25,11 +26,7 @@ export default class App extends React.Component {
   render() {
     if (this.state.fontsLoaded) {
       return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text>Platform Default</Text>
-          <Text style={{ fontFamily: 'Inconsolata-Light' }}>Inter Black</Text>
-          <Text style={{ fontFamily: 'Inconsolata-Regular' }}>Inter Regular</Text>
-        </View>
+        <Home />
       );
     } else {
       return <AppLoading />;
