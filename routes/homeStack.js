@@ -10,9 +10,6 @@ const screens = {
     },
     ReviewDetails: {
         screen: ReviewDetails
-    },
-    About: {
-        screen: About
     }
 }
 
