@@ -3,11 +3,11 @@ import { View, Text, Button } from "react-native";
 import { globalStyles } from "../styles/global";
 
 export default function Home({ navigation }) {
-
-  const pressHandler = () => {
-    navigation.navigate('ReviewDetails');
-    // navigation.push('ReviewDetails');
-  }
+  const [reviews, setReviews] = useState([
+    { title: 'Zelda, Breath of Fresh Air', rating: 5, body: 'orem ipsum', key: '1'},
+    { title: 'Gotta Catch Them All (Again)', rating: 5, body: 'orem ipsum', key: '2'},
+    { title: 'Not So "Final" Fantasy', rating: 5, body: 'orem ipsum', key: '3'},
+  ]);
 
   return (
     <View style={globalStyles.container}>
