@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { View, Text, Flatlist, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  FlatList,
+} from "react-native";
 import { globalStyles } from "../styles/global";
 
 export default function Home({ navigation }) {
@@ -7,26 +12,26 @@ export default function Home({ navigation }) {
     {
       title: "Zelda, Breath of Fresh Air",
       rating: 5,
-      body: "orem ipsum",
+      body: "lorem ipsum",
       key: "1",
     },
     {
       title: "Gotta Catch Them All (again)",
-      rating: 5,
-      body: "orem ipsum",
+      rating: 4,
+      body: "lorem ipsum",
       key: "2",
     },
     {
       title: 'Not So "Final" Fantasy',
-      rating: 5,
-      body: "orem ipsum",
+      rating: 3,
+      body: "lorem ipsum",
       key: "3",
     },
   ]);
 
   return (
     <View style={globalStyles.container}>
-      <Flatlist
+      <FlatList
         data={reviews}
         renderItem={({ item }) => (
           <TouchableOpacity
